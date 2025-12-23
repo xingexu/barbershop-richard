@@ -1,8 +1,6 @@
-export const API_BASE =
-  import.meta.env.VITE_API_BASE ||
-  (import.meta.env.MODE === "production"
-    ? "https://barbershopweb.onrender.com/api"
-    : "http://localhost:3001/api");
+// Default to same-origin /api (works on Vercel when backend is deployed as serverless functions)
+// You can override with VITE_API_BASE (e.g. https://your-backend.com/api)
+export const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
 export const ADMIN_TOKEN_KEY = "adminToken";
 

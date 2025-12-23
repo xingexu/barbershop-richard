@@ -1,7 +1,7 @@
 import express = require("express");
 import cors = require("cors");
 import { config as dotenvConfig } from "dotenv";
-import bcrypt = require("bcrypt");
+import bcrypt = require("bcryptjs");
 import jwt = require("jsonwebtoken");
 import { z } from "zod";
 import nodemailer = require("nodemailer");
@@ -509,10 +509,20 @@ app.post(`${API}/appointments`, async (req, res) => {
 
 /* ---------------- Start ---------------- */
 const port = Number(process.env.PORT || 3001);
-ensureDefaultAvailabilityWindows()
-  .catch((e) => console.error("Failed to ensure default availability windows:", e))
-  .finally(() => {
+
+export const ready: Promise<void> = ensureDefaultAvailabilityWindows().catch((e) => {
+  console.error("Failed to ensure default availability windows:", e);
+});
+
+// Only listen in non-serverless environments.
+// On Vercel, requests are handled by api/[...path].ts
+if (!process.env.VERCEL && require.main === module) {
+  ready.finally(() => {
     app.listen(port, () => {
       console.log(`Backend running on http://localhost:${port}`);
     });
   });
+}
+
+export default app;
+
