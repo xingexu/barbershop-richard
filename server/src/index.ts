@@ -12,7 +12,7 @@ dotenvConfig();
 const prisma = new PrismaClient();
 const app = express();
 
-// CORS (GitHub Pages + local dev)
+// CORS (GitHub Pages + local dev + Vercel)
 const ALLOWED_ORIGINS = new Set<string>([
   "http://localhost:5173",
   "http://127.0.0.1:5173",
@@ -20,12 +20,28 @@ const ALLOWED_ORIGINS = new Set<string>([
   "https://richardl128.github.io/BarbershopWeb",
 ]);
 
+// Optionally allow additional origins via env (comma-separated)
+const EXTRA_CORS_ORIGINS = new Set<string>(
+  String(process.env.CORS_ORIGINS || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)
+);
+
+function isAllowedOrigin(origin: string) {
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  if (EXTRA_CORS_ORIGINS.has(origin)) return true;
+  // Allow Vercel preview/prod domains
+  if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) return true;
+  return false;
+}
+
 app.use(
   cors({
     origin: (origin, cb) => {
       // allow curl / server-to-server (no Origin header)
       if (!origin) return cb(null, true);
-      if (ALLOWED_ORIGINS.has(origin)) return cb(null, true);
+      if (isAllowedOrigin(origin)) return cb(null, true);
       return cb(new Error(`CORS blocked origin: ${origin}`));
     },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
