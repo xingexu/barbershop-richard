@@ -1,0 +1,28 @@
+<svg width="420" height="420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .topo-line {
+        fill: none;
+        stroke: rgba(234, 171, 0, 0.35);
+        stroke-width: 0.8;
+        vector-effect: non-scaling-stroke;
+      }
+    </style>
+  </defs>
+  <!-- Organic topographic contour lines -->
+  <path class="topo-line" d="M0,200 Q50,180 100,190 T200,185 T300,195 T420,200" />
+  <path class="topo-line" d="M0,150 Q60,130 120,140 T240,135 T420,150" />
+  <path class="topo-line" d="M0,250 Q40,270 80,260 T160,265 T240,255 T320,260 T420,250" />
+  <path class="topo-line" d="M0,100 Q70,85 140,95 T280,90 T420,100" />
+  <path class="topo-line" d="M0,300 Q50,320 100,310 T200,315 T300,305 T420,300" />
+  <path class="topo-line" d="M0,50 Q80,35 160,45 T320,40 T420,50" />
+  <path class="topo-line" d="M0,350 Q40,370 80,360 T160,365 T240,355 T320,360 T420,350" />
+  <path class="topo-line" d="M0,0 Q90,-15 180,-5 T360,-10 T420,0" />
+  <path class="topo-line" d="M0,400 Q30,420 60,410 T120,415 T180,405 T240,410 T300,400 T360,405 T420,400" />
+  <!-- Additional organic curves for depth -->
+  <path class="topo-line" d="M0,175 Q55,165 110,170 T220,168 T330,172 T420,175" />
+  <path class="topo-line" d="M0,225 Q45,235 90,225 T180,230 T270,220 T360,225 T420,225" />
+  <path class="topo-line" d="M0,125 Q65,115 130,120 T260,118 T420,125" />
+  <path class="topo-line" d="M0,275 Q35,285 70,275 T140,280 T210,270 T280,275 T350,270 T420,275" />
+</svg>
+
