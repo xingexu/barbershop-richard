@@ -515,7 +515,7 @@ export const ready: Promise<void> = ensureDefaultAvailabilityWindows().catch((e)
 });
 
 // Only listen in non-serverless environments.
-// On Vercel, requests are handled by `api/[...path].ts`.
+// On Vercel, requests are handled by api/[...path].ts
 if (!process.env.VERCEL && require.main === module) {
   ready.finally(() => {
     app.listen(port, () => {
@@ -525,3 +525,4 @@ if (!process.env.VERCEL && require.main === module) {
 }
 
 export default app;
+
