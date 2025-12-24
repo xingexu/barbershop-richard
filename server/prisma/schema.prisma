@@ -1,0 +1,75 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CustomerUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  phone     String?
+  createdAt DateTime @default(now())
+
+  appointments Appointment[]
+}
+
+model Service {
+  id          String @id
+  label       String
+  durationMin Int
+  priceCents  Int?
+
+  appointments Appointment[]
+}
+
+model Appointment {
+  id        String   @id @default(cuid())
+  serviceId String
+  startTime DateTime
+  notes     String?
+  intake    Json?
+  createdAt DateTime @default(now())
+
+  // snapshot at booking time
+  name  String
+  email String
+  phone String?
+
+  customerId String?
+  customer   CustomerUser? @relation(fields: [customerId], references: [id])
+
+  service Service @relation(fields: [serviceId], references: [id])
+
+  @@unique([startTime])
+  @@index([startTime])
+  @@index([serviceId])
+  @@index([customerId])
+}
+
+// Weekly working hours template (e.g. Mon 10:00–19:00)
+model AvailabilityWindow {
+  id        String   @id @default(cuid())
+  weekday   Int      // 0=Sun ... 6=Sat
+  startMin  Int      // minutes from midnight (e.g. 10:00 = 600)
+  endMin    Int      // minutes from midnight (e.g. 19:00 = 1140)
+  createdAt DateTime @default(now())
+
+  @@index([weekday])
+}
+
+// One-off time off / breaks / closures (any time in this range is UNAVAILABLE)
+model AvailabilityBlock {
+  id        String   @id @default(cuid())
+  startTime DateTime
+  endTime   DateTime
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@index([startTime])
+  @@index([endTime])
+}

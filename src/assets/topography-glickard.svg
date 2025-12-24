@@ -1,0 +1,44 @@
+<svg width="520" height="520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .topo-contour {
+        fill: none;
+        stroke: rgba(234, 171, 0, 0.35);
+        stroke-width: 1.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+    </style>
+  </defs>
+  <!-- Topographic contour lines - irregular closed shapes like elevation lines -->
+  <!-- Layer 1: Outer contours -->
+  <path class="topo-contour" d="M50,100 Q80,60 120,80 T200,70 T280,85 T360,75 T450,90 T520,100 L520,150 Q480,140 420,145 T300,135 T180,150 T80,140 Q50,130 50,100 Z" />
+  <path class="topo-contour" d="M30,200 Q60,180 100,190 T180,185 T260,195 T340,180 T420,190 T500,200 L500,250 Q460,240 400,245 T280,235 T160,250 T80,240 Q30,220 30,200 Z" />
+  <path class="topo-contour" d="M80,300 Q120,280 160,290 T240,285 T320,295 T400,280 T480,290 L480,340 Q440,330 380,335 T260,325 T140,340 T60,330 Q80,310 80,300 Z" />
+  
+  <!-- Layer 2: Medium contours -->
+  <path class="topo-contour" d="M100,120 Q130,100 170,110 T250,105 T330,115 T410,100 T490,110 L490,140 Q450,130 390,135 T270,125 T150,140 T100,130 Q100,120 100,120 Z" />
+  <path class="topo-contour" d="M150,220 Q180,200 220,210 T300,205 T380,215 T460,200 T520,210 L520,240 Q480,230 420,235 T300,225 T180,240 T150,230 Q150,220 150,220 Z" />
+  <path class="topo-contour" d="M200,320 Q230,300 270,310 T350,305 T430,315 T510,300 L510,330 Q470,320 410,325 T290,315 T200,330 Q200,320 200,320 Z" />
+  
+  <!-- Layer 3: Inner smaller contours -->
+  <path class="topo-contour" d="M180,140 Q200,130 230,135 T290,132 T350,138 T410,130 T470,135 L470,150 Q440,145 390,148 T310,145 T230,150 T180,145 Q180,140 180,140 Z" />
+  <path class="topo-contour" d="M250,240 Q270,230 300,235 T360,232 T420,238 T480,230 L480,245 Q450,240 400,243 T320,240 T250,245 Q250,240 250,240 Z" />
+  <path class="topo-contour" d="M320,340 Q340,330 370,335 T430,332 T490,338 L490,350 Q460,345 410,348 T340,345 T320,350 Q320,340 320,340 Z" />
+  
+  <!-- Additional organic contour variations -->
+  <path class="topo-contour" d="M0,150 Q40,130 80,140 T160,135 T240,145 T320,130 T400,140 T480,150 L480,180 Q440,170 380,175 T260,165 T140,180 T60,170 Q0,160 0,150 Z" />
+  <path class="topo-contour" d="M20,250 Q50,230 90,240 T170,235 T250,245 T330,230 T410,240 T490,250 L490,280 Q450,270 390,275 T270,265 T150,280 T70,270 Q20,260 20,250 Z" />
+  <path class="topo-contour" d="M60,350 Q90,330 130,340 T210,335 T290,345 T370,330 T450,340 T520,350 L520,380 Q480,370 420,375 T300,365 T180,380 T100,370 Q60,360 60,350 Z" />
+  
+  <!-- Smaller nested contours for depth -->
+  <path class="topo-contour" d="M220,160 Q240,155 260,158 T300,156 T340,160 T380,155 T420,158 L420,168 Q390,165 350,167 T280,165 T240,168 Q220,165 220,160 Z" />
+  <path class="topo-contour" d="M280,260 Q300,255 320,258 T360,256 T400,260 T440,255 T480,258 L480,268 Q450,265 410,267 T340,265 T300,268 Q280,265 280,260 Z" />
+  <path class="topo-contour" d="M340,360 Q360,355 380,358 T420,356 T460,360 T500,355 L500,365 Q470,362 430,364 T380,362 T350,365 Q340,362 340,360 Z" />
+  
+  <!-- Diagonal/organic variations -->
+  <path class="topo-contour" d="M100,50 Q130,40 170,50 T250,45 T330,55 T410,40 T490,50 L490,80 Q450,70 390,75 T270,65 T150,80 T100,70 Q100,60 100,50 Z" />
+  <path class="topo-contour" d="M140,400 Q170,390 210,400 T290,395 T370,405 T450,390 T520,400 L520,430 Q480,420 420,425 T300,415 T180,430 T140,420 Q140,410 140,400 Z" />
+</svg>
+
